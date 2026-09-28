@@ -7,7 +7,12 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    app.get("/api/projects", (req, res) => {
+  res.json({
+    message: "Yaash Portfolio Backend is running!",
+  });
+});
+
+app.get("/api/projects", (req, res) => {
   res.json([
     {
       title: "Portfolio Website",
@@ -23,8 +28,18 @@ app.get("/", (req, res) => {
     },
   ]);
 });
+
+app.post("/api/contact", (req, res) => {
+  const { name, email, message } = req.body;
+
+  console.log("New Contact Message:");
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Message:", message);
+
   res.json({
-    message: "Yaash Portfolio Backend is running!",
+    success: true,
+    message: "Message received successfully!",
   });
 });
 
@@ -33,3 +48,5 @@ const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+setInterval(() => {}, 1000);

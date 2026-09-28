@@ -1,6 +1,36 @@
-import { Box, Typography, Paper, Button } from "@mui/material";
+import { useState } from "react";
+import axios from "axios";
+import { Box, Typography, Paper, TextField, Button } from "@mui/material";
 
 function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/contact",
+        {
+          name,
+          email,
+          message,
+        }
+      );
+
+      alert(response.data.message);
+
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      alert("Something went wrong!");
+      console.log(error);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -18,10 +48,7 @@ function Contact() {
             fontWeight: "bold",
             mb: 5,
             textAlign: "center",
-            background:
-              "linear-gradient(90deg, #7b1fa2, #1976d2, #e91e63)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#7b1fa2",
           }}
         >
           Contact Me
@@ -35,34 +62,53 @@ function Contact() {
             borderTop: "6px solid #e91e63",
           }}
         >
-          <Typography variant="h5" sx={{ fontWeight: "bold", color: "#7b1fa2", mb: 2 }}>
+          <Typography variant="h5" sx={{ mb: 3, color: "#7b1fa2" }}>
             Let's Connect
           </Typography>
 
-          <Typography sx={{ mb: 3 }}>
-            I'd love to hear from you! Feel free to get in touch for projects,
-            collaborations or opportunities.
-          </Typography>
+          <Box component="form" onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              label="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              sx={{ mb: 2 }}
+              required
+            />
 
-          <Typography variant="h6">📧 Email</Typography>
-          <Typography sx={{ mb: 2 }}>yaasikayaasika170@gmail.com</Typography>
+            <TextField
+              fullWidth
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{ mb: 2 }}
+              required
+            />
 
-          <Typography variant="h6">💻 GitHub</Typography>
-          <Typography sx={{ mb: 2 }}>github.com/yaasikayaash</Typography>
+            <TextField
+              fullWidth
+              label="Message"
+              multiline
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              sx={{ mb: 3 }}
+              required
+            />
 
-          <Typography variant="h6">📍 Location</Typography>
-          <Typography sx={{ mb: 3 }}>Thanjavur, Tamil Nadu</Typography>
-
-          <Button
-            variant="contained"
-            href="mailto:yaasikayaasika170@gmail.com"
-            sx={{
-              borderRadius: 3,
-              background: "linear-gradient(90deg, #e91e63, #7b1fa2)",
-            }}
-          >
-            Send Email
-          </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                borderRadius: 3,
+                background:
+                  "linear-gradient(90deg, #e91e63, #7b1fa2)",
+              }}
+            >
+              Send Message
+            </Button>
+          </Box>
         </Paper>
       </Box>
     </Box>
