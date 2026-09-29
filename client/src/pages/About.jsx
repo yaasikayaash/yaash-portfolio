@@ -6,59 +6,63 @@ function About() {
       sx={{
         minHeight: "90vh",
         px: 3,
-        py: 8,
-        background:
-          "linear-gradient(135deg, #fff0f6 0%, #f3e7ff 50%, #e3f2fd 100%)",
+        py: 7,
+        background: "#fff5f8",
       }}
     >
-      <Box sx={{ maxWidth: 900, mx: "auto" }}>
+      <Box sx={{ maxWidth: 900, mx: "auto", textAlign: "center" }}>
         <Typography
           variant="h2"
           sx={{
             fontWeight: "bold",
+            color: "#c2185b",
             mb: 4,
-            textAlign: "center",
-            background:
-              "linear-gradient(90deg, #e91e63, #7b1fa2, #1976d2)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
           }}
         >
-          About Me
+          About Yaash Bloom 🌸
         </Typography>
 
         <Paper
-          elevation={6}
+          elevation={4}
           sx={{
             p: 5,
             borderRadius: 5,
-            border: "2px solid #ead7ff",
           }}
         >
           <Typography
             variant="h5"
             sx={{
               fontWeight: "bold",
-              color: "#7b1fa2",
+              color: "#ad1457",
               mb: 2,
             }}
           >
-            Hi, I'm Yaash 👋
+            Bringing Happiness Through Flowers
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 2, color: "#444" }}>
-            I'm a B.Tech Biotechnology student interested in
-            Full-Stack Web Development.
+          <Typography
+            sx={{
+              fontSize: 18,
+              lineHeight: 1.8,
+              color: "#555",
+            }}
+          >
+            Yaash Bloom is a flower and gift shop created to make
+            every special moment more beautiful. We offer fresh
+            flowers, beautiful bouquets and thoughtful gifts for
+            birthdays, celebrations and memorable occasions.
           </Typography>
 
-          <Typography variant="body1" sx={{ mb: 2, color: "#444" }}>
-            I am learning modern web technologies and building
-            responsive and user-friendly applications.
-          </Typography>
-
-          <Typography variant="body1" sx={{ color: "#444" }}>
-            My goal is to develop practical projects using
-            React, Node.js, Express.js and MongoDB.
+          <Typography
+            sx={{
+              fontSize: 18,
+              lineHeight: 1.8,
+              color: "#555",
+              mt: 3,
+            }}
+          >
+            Our goal is to make gifting simple, beautiful and
+            meaningful with carefully selected flowers and gifts.
           </Typography>
         </Paper>
       </Box>

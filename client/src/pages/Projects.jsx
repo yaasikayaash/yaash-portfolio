@@ -1,41 +1,46 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, Button } from "@mui/material";
 
 function Projects() {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/projects")
-      .then((response) => {
-        setProjects(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const flowers = [
+    {
+      name: "Rose Bouquet",
+      price: "₹499",
+      emoji: "🌹",
+      description: "Beautiful fresh roses arranged with love.",
+    },
+    {
+      name: "Lily Bouquet",
+      price: "₹599",
+      emoji: "🌷",
+      description: "Elegant lilies for every special moment.",
+    },
+    {
+      name: "Mixed Flower Bouquet",
+      price: "₹699",
+      emoji: "💐",
+      description: "A colourful mix of fresh seasonal flowers.",
+    },
+  ];
 
   return (
     <Box
       sx={{
         minHeight: "90vh",
         px: 3,
-        py: 8,
-        background:
-          "linear-gradient(135deg, #fff0f6, #e3f2fd, #f3e7ff)",
+        py: 7,
+        background: "#fff5f8",
       }}
     >
       <Typography
         variant="h2"
         sx={{
-          fontWeight: "bold",
-          mb: 5,
           textAlign: "center",
-          color: "#7b1fa2",
+          fontWeight: "bold",
+          color: "#c2185b",
+          mb: 5,
         }}
       >
-        My Projects
+        Our Flowers 🌷
       </Typography>
 
       <Box
@@ -47,33 +52,58 @@ function Projects() {
             xs: "1fr",
             md: "repeat(3, 1fr)",
           },
-          gap: 3,
+          gap: 4,
         }}
       >
-        {projects.map((project) => (
+        {flowers.map((flower) => (
           <Paper
-            key={project.title}
-            elevation={6}
+            key={flower.name}
+            elevation={5}
             sx={{
               p: 4,
-              borderRadius: 4,
-              borderTop: "6px solid #e91e63",
+              textAlign: "center",
+              borderRadius: 5,
             }}
           >
+            <Typography sx={{ fontSize: 70 }}>
+              {flower.emoji}
+            </Typography>
+
             <Typography
               variant="h5"
               sx={{
                 fontWeight: "bold",
-                color: "#7b1fa2",
+                color: "#ad1457",
+                mb: 1,
+              }}
+            >
+              {flower.name}
+            </Typography>
+
+            <Typography sx={{ mb: 2 }}>
+              {flower.description}
+            </Typography>
+
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                color: "#c2185b",
                 mb: 2,
               }}
             >
-              {project.title}
+              {flower.price}
             </Typography>
 
-            <Typography>
-              {project.description}
-            </Typography>
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: 3,
+                background: "#c2185b",
+              }}
+            >
+              Order Now
+            </Button>
           </Paper>
         ))}
       </Box>

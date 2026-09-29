@@ -1,4 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -11,99 +12,57 @@ function Home() {
         textAlign: "center",
         px: 3,
         background:
-          "linear-gradient(135deg, #f3e7ff 0%, #e3f2fd 50%, #ffe4f1 100%)",
+          "linear-gradient(135deg, #fff0f5, #ffe4ec, #fce4ec)",
       }}
     >
-      <Box>
-        <Typography
-          variant="h6"
-          sx={{
-            color: "#7b1fa2",
-            fontWeight: "bold",
-            letterSpacing: 2,
-            mb: 2,
-          }}
-        >
-          HELLO, I'M
-        </Typography>
-
+      <Box sx={{ maxWidth: 800 }}>
         <Typography
           variant="h1"
           sx={{
             fontWeight: "bold",
-            mb: 1,
-            background:
-              "linear-gradient(90deg, #7b1fa2, #1976d2, #e91e63)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#c2185b",
+            mb: 2,
           }}
         >
-          Yaash
+          Yaash Bloom 🌸
         </Typography>
 
         <Typography
           variant="h4"
           sx={{
-            color: "#303f9f",
-            fontWeight: "bold",
+            color: "#6a1b4d",
             mb: 3,
           }}
         >
-          Full-Stack Developer
+          Flowers that make every moment beautiful
         </Typography>
 
         <Typography
-          variant="body1"
+          variant="h6"
           sx={{
-            maxWidth: 600,
-            mx: "auto",
+            color: "#555",
             mb: 4,
-            color: "#444",
+            lineHeight: 1.7,
           }}
         >
-          I build clean, responsive and user-friendly web
-          applications using modern technologies.
+          Fresh flowers, beautiful bouquets and thoughtful gifts
+          for every special occasion.
         </Typography>
 
         <Button
           variant="contained"
-          href="/projects"
+          component={Link}
+          to="/flowers"
           sx={{
-            mr: 2,
-            px: 3,
-            py: 1.2,
-            borderRadius: 3,
+            px: 4,
+            py: 1.5,
+            borderRadius: 4,
             background:
-              "linear-gradient(90deg, #7b1fa2, #1976d2)",
+              "linear-gradient(90deg, #c2185b, #e91e63)",
           }}
         >
-          View Projects
+          Explore Flowers
         </Button>
-
-        <Button
-          variant="contained"
-          href="/contact"
-          sx={{
-            px: 3,
-            py: 1.2,
-            borderRadius: 3,
-            background:
-              "linear-gradient(90deg, #e91e63, #ff6f61)",
-          }}
-        >
-          Contact Me
-        </Button>
-
-        <Typography
-          variant="body2"
-          sx={{
-            mt: 5,
-            color: "#6a1b9a",
-            fontWeight: "bold",
-          }}
-        >
-          HTML • CSS • JavaScript • React • Node.js • MongoDB
-        </Typography>
       </Box>
     </Box>
   );

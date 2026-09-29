@@ -13,8 +13,7 @@ function App() {
       <AppBar
         position="sticky"
         sx={{
-          background:
-            "linear-gradient(90deg, #7b1fa2, #1976d2, #e91e63)",
+          background: "linear-gradient(90deg, #c2185b, #e91e63, #ad1457)",
         }}
       >
         <Toolbar>
@@ -22,7 +21,7 @@ function App() {
             variant="h5"
             sx={{ fontWeight: "bold", flexGrow: 1 }}
           >
-            Yaash
+            Yaash Bloom 🌸
           </Typography>
 
           <Box>
@@ -30,16 +29,16 @@ function App() {
               Home
             </Button>
 
+            <Button color="inherit" component={Link} to="/flowers">
+              Flowers
+            </Button>
+
+            <Button color="inherit" component={Link} to="/gifts">
+              Gifts
+            </Button>
+
             <Button color="inherit" component={Link} to="/about">
               About
-            </Button>
-
-            <Button color="inherit" component={Link} to="/skills">
-              Skills
-            </Button>
-
-            <Button color="inherit" component={Link} to="/projects">
-              Projects
             </Button>
 
             <Button color="inherit" component={Link} to="/contact">
@@ -51,9 +50,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/flowers" element={<Projects />} />
+        <Route path="/gifts" element={<Skills />} />
         <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>

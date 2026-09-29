@@ -1,26 +1,24 @@
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, Button } from "@mui/material";
 
 function Skills() {
-  const skills = [
+  const gifts = [
     {
-      title: "Frontend",
-      items: "HTML, CSS, JavaScript, React.js",
-      color: "#7b1fa2",
+      name: "Love Gift Box",
+      price: "₹799",
+      emoji: "🎁",
+      description: "A beautiful gift box with flowers and sweet surprises.",
     },
     {
-      title: "React & UI",
-      items: "React Router, Material UI, DOM Manipulation",
-      color: "#1976d2",
+      name: "Birthday Special",
+      price: "₹999",
+      emoji: "🎂",
+      description: "Flowers and gifts specially arranged for birthdays.",
     },
     {
-      title: "Backend",
-      items: "Node.js, Express.js, REST APIs, Middleware & Routing",
-      color: "#00897b",
-    },
-    {
-      title: "Database & Security",
-      items: "MongoDB, Schema Design, Bcrypt, JWT Authentication",
-      color: "#e91e63",
+      name: "Flower Hamper",
+      price: "₹899",
+      emoji: "🧺",
+      description: "A lovely hamper filled with flowers and thoughtful gifts.",
     },
   ];
 
@@ -29,68 +27,85 @@ function Skills() {
       sx={{
         minHeight: "90vh",
         px: 3,
-        py: 8,
-        background:
-          "linear-gradient(135deg, #e3f2fd 0%, #f3e7ff 50%, #fff0f6 100%)",
+        py: 7,
+        background: "#fff0f5",
       }}
     >
-      <Box sx={{ maxWidth: 1100, mx: "auto" }}>
-        <Typography
-          variant="h2"
-          sx={{
-            fontWeight: "bold",
-            mb: 5,
-            textAlign: "center",
-            background:
-              "linear-gradient(90deg, #7b1fa2, #1976d2, #e91e63)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          My Skills
-        </Typography>
+      <Typography
+        variant="h2"
+        sx={{
+          textAlign: "center",
+          fontWeight: "bold",
+          color: "#c2185b",
+          mb: 5,
+        }}
+      >
+        Gifts & Hampers 🎁
+      </Typography>
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "1fr",
-              sm: "repeat(2, 1fr)",
-            },
-            gap: 3,
-          }}
-        >
-          {skills.map((skill) => (
-            <Paper
-              key={skill.title}
-              elevation={6}
+      <Box
+        sx={{
+          maxWidth: 1100,
+          mx: "auto",
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "repeat(3, 1fr)",
+          },
+          gap: 4,
+        }}
+      >
+        {gifts.map((gift) => (
+          <Paper
+            key={gift.name}
+            elevation={5}
+            sx={{
+              p: 4,
+              textAlign: "center",
+              borderRadius: 5,
+            }}
+          >
+            <Typography sx={{ fontSize: 70 }}>
+              {gift.emoji}
+            </Typography>
+
+            <Typography
+              variant="h5"
               sx={{
-                p: 4,
-                borderRadius: 4,
-                borderTop: `6px solid ${skill.color}`,
-                transition: "0.3s",
-                "&:hover": {
-                  transform: "translateY(-8px)",
-                },
+                fontWeight: "bold",
+                color: "#ad1457",
+                mb: 1,
               }}
             >
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: "bold",
-                  color: skill.color,
-                  mb: 2,
-                }}
-              >
-                {skill.title}
-              </Typography>
+              {gift.name}
+            </Typography>
 
-              <Typography variant="body1" sx={{ color: "#444" }}>
-                {skill.items}
-              </Typography>
-            </Paper>
-          ))}
-        </Box>
+            <Typography sx={{ mb: 2 }}>
+              {gift.description}
+            </Typography>
+
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                color: "#c2185b",
+                mb: 2,
+              }}
+            >
+              {gift.price}
+            </Typography>
+
+            <Button
+              variant="contained"
+              sx={{
+                borderRadius: 3,
+                background: "#c2185b",
+              }}
+            >
+              Shop Now
+            </Button>
+          </Paper>
+        ))}
       </Box>
     </Box>
   );
