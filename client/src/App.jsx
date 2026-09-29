@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
@@ -41,6 +42,10 @@ function App() {
               About
             </Button>
 
+            <Button color="inherit" component={Link} to="/gallery">
+  Gallery
+</Button>
+
             <Button color="inherit" component={Link} to="/contact">
               Contact
             </Button>
@@ -54,6 +59,7 @@ function App() {
         <Route path="/gifts" element={<Skills />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </BrowserRouter>
   );
